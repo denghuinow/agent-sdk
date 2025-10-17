@@ -47,6 +47,7 @@ def test_client_property_lazy_initialization():
     # Accessing client should create it
     client = workspace.client
     assert isinstance(client, httpx.Client)
+    assert str(client.base_url) == "http://localhost:8000"
     assert workspace._client is client
 
     # Subsequent access should return same client
